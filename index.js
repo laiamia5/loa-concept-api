@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+require('dotenv').config()
 const rutaProducto = require('./routes/productos')
 const rutaCompras = require('./routes/compras')
 const rutaInfo = require('./routes/info')
@@ -31,7 +32,7 @@ app.use('/upload', rutaCloudinary)
 database
 .sync({alter: true})
 .then(() => {
-    app.listen(3001, () => {
+    app.listen(process.env.PORT, () => {
       console.log('se esta escuchando todo bien'); 
     });
 });
