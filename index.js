@@ -33,6 +33,6 @@ database
 .sync({alter: true})
 .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log('se esta escuchando todo bien'); 
+      console.log(`se escucha todfo en el puerto ${process.env.PORT}`); 
     });
 });
