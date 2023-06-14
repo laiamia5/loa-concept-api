@@ -28,6 +28,9 @@ app.use('/realizar-pedido', rutaPedido )
 app.use('/usuarios', rutaUsuario)
 app.use('/upload', rutaCloudinary)
 
+app.get('/', () => {
+  res.send('biennnn')
+})
 
 database
 .sync({alter: true})
