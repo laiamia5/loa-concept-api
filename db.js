@@ -10,8 +10,12 @@ const usuarios = require('./models/usuario')
 let usuarioDB = process.env.DB_USER
 let contraseña = process.env.DB_PASSWORD
 let host = process.env.DB_HOST
+let tipo_db = process.env.DB_TIPO
+let nombre_db = process.env.DB_NOMBRE
 
-const database = new Sequelize(`postgres://${usuarioDB}:${contraseña}@${host}/loaconcept`,  {logging: false} )
+// postgresql  ://   postgres   :  KnNWaWBNFbjWqk7U8poB   @  containers-us-west-157.railway.app:7545  /  railway
+
+const database = new Sequelize(`${tipo_db}://${usuarioDB}:${contraseña}@${host}/${nombre_db}`,  {logging: false} )
 
 productos(database)
 compras(database)
