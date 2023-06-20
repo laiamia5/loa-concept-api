@@ -49,6 +49,7 @@ rutaCompras.post('/', async (req, res) => {
              {model: usuario}
          ],
         })
+        
        res.status(200).send(complit)
     }catch(err){
        res.status(400).send(err.message)

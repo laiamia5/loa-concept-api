@@ -29,11 +29,11 @@ payRouter.post('/:idCompras', async (req, res) => {
     //tengo que meter las props que faltan en algun lugar para dar mas info de producto
     await req.body.forEach((e) => {
         preference.items.push({
-            title: e.nombre,
-            description: e.descripcion ? e.descripcion : "sin descripcion",
+            title: e.producto.nombre,
+            description: e.producto.descripcion ? e.producto.descripcion : "sin descripcion",
             currency_id: "$",
             quantity: e.cantidad,
-            unit_price: e.precio
+            unit_price: e.producto.precio
         })
     })
 
