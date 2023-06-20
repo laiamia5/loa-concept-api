@@ -38,7 +38,8 @@ rutaCompras.post('/', async (req, res) => {
        await realizar_compra.addPedido(pedidos) 
        await realizar_compra.setUsuario(usuarioId)
 
-       res.status(200).send({...realizar_compra, pedidos: pedidos})
+       let complit = await compra.findOne({where: { id: realizar_compra.id }, include :[ {model: usuario}, {model: pedido}]})
+       res.status(200).send(complit)
     }catch(err){
        res.status(400).send(err.message)
     }
